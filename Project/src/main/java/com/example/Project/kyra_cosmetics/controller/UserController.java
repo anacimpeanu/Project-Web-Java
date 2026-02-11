@@ -1,8 +1,8 @@
 package com.example.Project.controller;
 
 
-import com.kyra.cosmetics.model.User;
-import com.kyra.cosmetics.service.UserService;
+import com.example.Project.model.User;
+import com.example.Project.service.UserService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;

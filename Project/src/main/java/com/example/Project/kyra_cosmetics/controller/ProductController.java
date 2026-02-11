@@ -1,8 +1,8 @@
 package com.example.Project.controller;
 
 
-import com.kyra.cosmetics.model.Product;
-import com.kyra.cosmetics.service.ProductService;
+import com.example.Project.model.Product;
+import com.example.Project.service.ProductService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;

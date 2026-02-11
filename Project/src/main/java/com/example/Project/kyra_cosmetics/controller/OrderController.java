@@ -1,9 +1,9 @@
 package com.example.Project.controller;
 
 
-import com.kyra.cosmetics.model.Order;
-import com.kyra.cosmetics.model.OrderStatus;
-import com.kyra.cosmetics.service.OrderService;
+import com.example.Project.model.Order;
+import com.example.Project.model.OrderStatus;
+import com.example.Project.service.OrderService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 

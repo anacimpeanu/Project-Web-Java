@@ -1,7 +1,7 @@
 package com.example.Project.repository;
 
 
-import com.kyra.cosmetics.model.Order;
+import com.example.Project.model.Order;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

@@ -1,10 +1,10 @@
 package com.example.Project.service;
 
 
-import com.kyra.cosmetics.exception.BadRequestException;
-import com.kyra.cosmetics.exception.ResourceNotFoundException;
-import com.kyra.cosmetics.model.*;
-import com.kyra.cosmetics.repository.*;
+import com.example.Project.exception.BadRequestException;
+import com.example.Project.exception.ResourceNotFoundException;
+import com.example.Project.model.*;
+import com.example.Project.repository.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

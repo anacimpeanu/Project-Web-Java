@@ -1,8 +1,8 @@
 package com.example.Project.controller;
 
 
-import com.kyra.cosmetics.model.Cart;
-import com.kyra.cosmetics.service.CartService;
+import com.example.Project.model.Cart;
+import com.example.Project.service.CartService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
