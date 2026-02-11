@@ -1,11 +1,11 @@
 package com.kyra.cosmetics.service;
 
+import com.kyra.cosmetics.exception.BadRequestException;
+import com.kyra.cosmetics.exception.ResourceNotFoundException;
 import com.kyra.cosmetics.model.*;
 import com.kyra.cosmetics.repository.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
 
 @Service
 @RequiredArgsConstructor
@@ -17,7 +17,7 @@ public class CartService {
 
     public Cart getCartByUser(Long userId) {
         return cartRepository.findByUserId(userId)
-                .orElseThrow(() -> new RuntimeException("Cart not found"));
+                .orElseThrow(() -> new ResourceNotFoundException("Cart not found"));
     }
 
     public Cart addProduct(Long userId, Long productId, int quantity) {
@@ -25,10 +25,10 @@ public class CartService {
         Cart cart = getCartByUser(userId);
 
         Product product = productRepository.findById(productId)
-                .orElseThrow(() -> new RuntimeException("Product not found"));
+                .orElseThrow(() -> new ResourceNotFoundException("Product not found"));
 
         if (product.getStock() < quantity) {
-            throw new RuntimeException("Not enough stock");
+            throw new BadRequestException("Not enough stock");
         }
 
         CartItem cartItem = cartItemRepository
@@ -56,7 +56,7 @@ public class CartService {
 
         CartItem cartItem = cartItemRepository
                 .findByCartIdAndProductId(cart.getId(), productId)
-                .orElseThrow(() -> new RuntimeException("Product not in cart"));
+                .orElseThrow(() -> new ResourceNotFoundException("Product not in cart"));
 
         cartItemRepository.delete(cartItem);
     }

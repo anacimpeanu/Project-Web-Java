@@ -1,5 +1,6 @@
 package com.kyra.cosmetics.service;
 
+import com.kyra.cosmetics.exception.ResourceNotFoundException;
 import com.kyra.cosmetics.model.Category;
 import com.kyra.cosmetics.model.Product;
 import com.kyra.cosmetics.repository.CategoryRepository;
@@ -19,7 +20,7 @@ public class ProductService {
     public Product create(Product product, Long categoryId) {
 
         Category category = categoryRepository.findById(categoryId)
-                .orElseThrow(() -> new RuntimeException("Category not found"));
+                .orElseThrow(() -> new ResourceNotFoundException("Category not found"));
 
         product.setCategory(category);
 
@@ -31,15 +32,25 @@ public class ProductService {
     }
 
     public List<Product> findByCategory(Long categoryId) {
-        return productRepository.findByCategoryId(categoryId);
-    }
 
-    public void delete(Long id) {
-        productRepository.deleteById(id);
+        if (!categoryRepository.existsById(categoryId)) {
+            throw new ResourceNotFoundException("Category not found");
+        }
+
+        return productRepository.findByCategoryId(categoryId);
     }
 
     public Product findById(Long id) {
         return productRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Product not found"));
+                .orElseThrow(() -> new ResourceNotFoundException("Product not found"));
+    }
+
+    public void delete(Long id) {
+
+        if (!productRepository.existsById(id)) {
+            throw new ResourceNotFoundException("Product not found");
+        }
+
+        productRepository.deleteById(id);
     }
 }

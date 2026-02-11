@@ -1,5 +1,7 @@
 package com.kyra.cosmetics.service;
 
+import com.kyra.cosmetics.exception.BadRequestException;
+import com.kyra.cosmetics.exception.ResourceNotFoundException;
 import com.kyra.cosmetics.model.Category;
 import com.kyra.cosmetics.repository.CategoryRepository;
 import lombok.RequiredArgsConstructor;
@@ -16,7 +18,7 @@ public class CategoryService {
     public Category create(Category category) {
 
         if (categoryRepository.existsByName(category.getName())) {
-            throw new RuntimeException("Category already exists");
+            throw new BadRequestException("Category already exists");
         }
 
         return categoryRepository.save(category);
@@ -24,5 +26,10 @@ public class CategoryService {
 
     public List<Category> findAll() {
         return categoryRepository.findAll();
+    }
+
+    public Category findById(Long id) {
+        return categoryRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("Category not found"));
     }
 }

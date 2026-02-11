@@ -1,5 +1,7 @@
 package com.kyra.cosmetics.service;
 
+import com.kyra.cosmetics.exception.BadRequestException;
+import com.kyra.cosmetics.exception.ResourceNotFoundException;
 import com.kyra.cosmetics.model.*;
 import com.kyra.cosmetics.repository.*;
 import lombok.RequiredArgsConstructor;
@@ -21,26 +23,27 @@ public class OrderService {
     public Order placeOrder(Long userId) {
 
         Cart cart = cartRepository.findByUserId(userId)
-                .orElseThrow(() -> new RuntimeException("Cart not found"));
+                .orElseThrow(() -> new ResourceNotFoundException("Cart not found"));
 
         if (cart.getCartItems() == null || cart.getCartItems().isEmpty()) {
-            throw new RuntimeException("Cart is empty");
+            throw new BadRequestException("Cart is empty");
         }
 
-        double total = 0;
-        List<OrderItem> orderItems = new ArrayList<>();
-
         Order order = Order.builder()
+                .user(cart.getUser())
                 .status(OrderStatus.PLACED)
                 .createdAt(LocalDateTime.now())
                 .build();
+
+        double total = 0;
+        List<OrderItem> orderItems = new ArrayList<>();
 
         for (CartItem cartItem : cart.getCartItems()) {
 
             Product product = cartItem.getProduct();
 
             if (product.getStock() < cartItem.getQuantity()) {
-                throw new RuntimeException("Not enough stock for product: " + product.getName());
+                throw new BadRequestException("Not enough stock for product: " + product.getName());
             }
 
             product.setStock(product.getStock() - cartItem.getQuantity());
@@ -63,7 +66,6 @@ public class OrderService {
         order.setOrderItems(orderItems);
 
         Order savedOrder = orderRepository.save(order);
-
         orderItemRepository.saveAll(orderItems);
 
         cart.getCartItems().clear();
@@ -79,7 +81,7 @@ public class OrderService {
     public Order updateStatus(Long orderId, OrderStatus status) {
 
         Order order = orderRepository.findById(orderId)
-                .orElseThrow(() -> new RuntimeException("Order not found"));
+                .orElseThrow(() -> new ResourceNotFoundException("Order not found"));
 
         order.setStatus(status);
 
