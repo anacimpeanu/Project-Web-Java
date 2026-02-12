@@ -19,4 +19,3 @@
  - **CI:**
 	 - A GitHub Actions workflow is included at `.github/workflows/maven.yml` to run `./mvnw -f Project test` on push and pull requests.
 
-If you want, I can add a CI status badge to this README or attach the artifacts to the open PR.
