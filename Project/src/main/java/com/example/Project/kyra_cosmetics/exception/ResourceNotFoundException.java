@@ -1,4 +1,4 @@
-package com.example.Project.exception;
+package com.example.Project.kyra_cosmetics.exception;
 
 
 public class ResourceNotFoundException extends RuntimeException {

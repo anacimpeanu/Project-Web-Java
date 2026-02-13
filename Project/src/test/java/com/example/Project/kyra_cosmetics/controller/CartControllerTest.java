@@ -1,10 +1,10 @@
 package com.example.Project.kyra_cosmetics.controller;
 
-import com.example.Project.controller.CartController;
-import com.example.Project.model.Cart;
-import com.example.Project.model.CartItem;
-import com.example.Project.model.Product;
-import com.example.Project.service.CartService;
+import com.example.Project.kyra_cosmetics.controller.CartController;
+import com.example.Project.kyra_cosmetics.model.Cart;
+import com.example.Project.kyra_cosmetics.model.CartItem;
+import com.example.Project.kyra_cosmetics.model.Product;
+import com.example.Project.kyra_cosmetics.service.CartService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -30,7 +30,7 @@ class CartControllerTest {
     CartService cartService;
 
     @InjectMocks
-    com.example.Project.controller.CartController cartController;
+    com.example.Project.kyra_cosmetics.controller.CartController cartController;
 
     ObjectMapper mapper = new ObjectMapper();
 

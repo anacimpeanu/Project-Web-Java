@@ -1,10 +1,10 @@
 package com.example.Project.kyra_cosmetics.service;
 
-import com.example.Project.exception.BadRequestException;
-import com.example.Project.exception.ResourceNotFoundException;
-import com.example.Project.model.Category;
-import com.example.Project.repository.CategoryRepository;
-import com.example.Project.service.CategoryService;
+import com.example.Project.kyra_cosmetics.exception.BadRequestException;
+import com.example.Project.kyra_cosmetics.exception.ResourceNotFoundException;
+import com.example.Project.kyra_cosmetics.model.Category;
+import com.example.Project.kyra_cosmetics.repository.CategoryRepository;
+import com.example.Project.kyra_cosmetics.service.CategoryService;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;

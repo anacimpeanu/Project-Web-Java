@@ -1,13 +1,13 @@
 package com.example.Project.kyra_cosmetics.repository;
 
-import com.example.Project.model.Cart;
-import com.example.Project.model.CartItem;
-import com.example.Project.model.Product;
-import com.example.Project.model.User;
-import com.example.Project.repository.CartItemRepository;
-import com.example.Project.repository.CartRepository;
-import com.example.Project.repository.ProductRepository;
-import com.example.Project.repository.UserRepository;
+import com.example.Project.kyra_cosmetics.model.Cart;
+import com.example.Project.kyra_cosmetics.model.CartItem;
+import com.example.Project.kyra_cosmetics.model.Product;
+import com.example.Project.kyra_cosmetics.model.User;
+import com.example.Project.kyra_cosmetics.repository.CartItemRepository;
+import com.example.Project.kyra_cosmetics.repository.CartRepository;
+import com.example.Project.kyra_cosmetics.repository.ProductRepository;
+import com.example.Project.kyra_cosmetics.repository.UserRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;

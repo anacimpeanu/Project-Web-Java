@@ -1,8 +1,8 @@
 package com.example.Project.kyra_cosmetics.controller;
 
-import com.example.Project.controller.UserController;
-import com.example.Project.model.User;
-import com.example.Project.service.UserService;
+import com.example.Project.kyra_cosmetics.controller.UserController;
+import com.example.Project.kyra_cosmetics.model.User;
+import com.example.Project.kyra_cosmetics.service.UserService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -29,7 +29,7 @@ class UserControllerTest {
     UserService userService;
 
     @InjectMocks
-    com.example.Project.controller.UserController userController;
+    com.example.Project.kyra_cosmetics.controller.UserController userController;
 
     ObjectMapper mapper = new ObjectMapper();
 

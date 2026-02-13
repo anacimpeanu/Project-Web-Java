@@ -1,8 +1,8 @@
 package com.example.Project.kyra_cosmetics.controller;
 
-import com.example.Project.controller.CategoryController;
-import com.example.Project.model.Category;
-import com.example.Project.service.CategoryService;
+import com.example.Project.kyra_cosmetics.controller.CategoryController;
+import com.example.Project.kyra_cosmetics.model.Category;
+import com.example.Project.kyra_cosmetics.service.CategoryService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -29,7 +29,7 @@ class CategoryControllerTest {
     CategoryService categoryService;
 
     @InjectMocks
-    com.example.Project.controller.CategoryController categoryController;
+    com.example.Project.kyra_cosmetics.controller.CategoryController categoryController;
 
     ObjectMapper mapper = new ObjectMapper();
 
