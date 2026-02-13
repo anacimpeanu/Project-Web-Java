@@ -1,4 +1,4 @@
-package com.example.Project.model;
+package com.example.Project.kyra_cosmetics.model;
 
 
 public enum Role {

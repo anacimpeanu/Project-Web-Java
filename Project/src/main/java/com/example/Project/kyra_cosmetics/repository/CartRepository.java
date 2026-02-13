@@ -1,6 +1,6 @@
-package com.example.Project.repository;
+package com.example.Project.kyra_cosmetics.repository;
 
-import com.example.Project.model.Cart;
+import com.example.Project.kyra_cosmetics.model.Cart;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

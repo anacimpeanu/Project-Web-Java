@@ -1,11 +1,11 @@
 package com.example.Project.kyra_cosmetics.service;
 
-import com.example.Project.exception.BadRequestException;
-import com.example.Project.model.Cart;
-import com.example.Project.model.User;
-import com.example.Project.repository.CartRepository;
-import com.example.Project.repository.UserRepository;
-import com.example.Project.service.UserService;
+import com.example.Project.kyra_cosmetics.exception.BadRequestException;
+import com.example.Project.kyra_cosmetics.model.Cart;
+import com.example.Project.kyra_cosmetics.model.User;
+import com.example.Project.kyra_cosmetics.repository.CartRepository;
+import com.example.Project.kyra_cosmetics.repository.UserRepository;
+import com.example.Project.kyra_cosmetics.service.UserService;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.ArgumentCaptor;

@@ -1,11 +1,11 @@
-package com.example.Project.service;
+package com.example.Project.kyra_cosmetics.service;
 
 
-import com.example.Project.exception.ResourceNotFoundException;
-import com.example.Project.model.Category;
-import com.example.Project.model.Product;
-import com.example.Project.repository.CategoryRepository;
-import com.example.Project.repository.ProductRepository;
+import com.example.Project.kyra_cosmetics.exception.ResourceNotFoundException;
+import com.example.Project.kyra_cosmetics.model.Category;
+import com.example.Project.kyra_cosmetics.model.Product;
+import com.example.Project.kyra_cosmetics.repository.CategoryRepository;
+import com.example.Project.kyra_cosmetics.repository.ProductRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

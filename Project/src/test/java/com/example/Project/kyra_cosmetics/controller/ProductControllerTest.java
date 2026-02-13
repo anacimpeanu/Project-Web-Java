@@ -1,9 +1,9 @@
 package com.example.Project.kyra_cosmetics.controller;
 
-import com.example.Project.controller.ProductController;
-import com.example.Project.model.Category;
-import com.example.Project.model.Product;
-import com.example.Project.service.ProductService;
+import com.example.Project.kyra_cosmetics.controller.ProductController;
+import com.example.Project.kyra_cosmetics.model.Category;
+import com.example.Project.kyra_cosmetics.model.Product;
+import com.example.Project.kyra_cosmetics.service.ProductService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
