@@ -1,11 +1,5 @@
 # Kyra Cosmetics - E-commerce Platform
 
-**Student:** Ana Cîmpeanu  
-**Domain Ales:** Cosmetics E-commerce Platform  
-**Tehnologie:** Spring Boot + React (Frontend)
-
----
-
 ## 📋 I. Business Requirements și MVP Features
 
 ### 10 Business Requirements
