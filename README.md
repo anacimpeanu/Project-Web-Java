@@ -1,4 +1,4 @@
-# Kyra Cosmetics - E-commerce Platform
+# Kyra Cosmetics 
 
 ## 📋 I. Business Requirements și MVP Features
 
