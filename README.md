@@ -132,15 +132,7 @@ Aplicația include documentație completă API folosind **Swagger/OpenAPI 3.0**:
 - **OpenAPI JSON:** `http:[codespace]/v3/api-docs`
 - **Export documentație:** [`swagger-api-docs.json`](swagger-api-docs.json)
 
-Documentația cuprinde:
-- Toate endpoint-urile REST cu descrieri detaliate
-- Scheme de request/response pentru fiecare endpoint
-- Exemple de date pentru testare
-- Informații despre validări și constrangeri
-- Coduri de status HTTP și mesaje de eroare
-
 ---
-
 ## 🧪 IV. Testing & Demonstrație Funcționalități
 
 ### Postman Collection
@@ -164,12 +156,6 @@ Colecție Postman completă pentru demonstrarea funcționalităților:
 5. Order Processing (Place order, Track status)
 
 ### Swagger UI (Alternativă Postman)
-
-Poți testa toate endpoint-urile interactiv:
-- URL: `http:[codespace]/swagger-ui/index.html`
-- Interface interactivă cu toate endpoint-urile
-- Exemple și documentație integrată
-
 ---
 
 ## 🚀 V. Rulare Aplicație
@@ -183,9 +169,8 @@ cd Project
 
 ### Acces URL-uri
 
-- **API Base URL:** `http://localhost:8080/api`
-- **Swagger UI:** `http://localhost:8080/swagger-ui/index.html`
-- **H2 Database Console:** `http://localhost:8080/h2-console`
+- **API Base URL:** `http://[codespace]/api`
+- **Swagger UI:** `http://[codespace]/swagger-ui/index.html`
 
 ### Rulare Teste
 
@@ -197,24 +182,3 @@ cd Project
 **Rezultate teste:** Vezi rapoarte în `artifacts/surefire-reports/`
 
 ---
-
-## 📦 VI. Structura Proiect
-
-```
-Project-Web-Java/
-├── Project/                          # Backend Spring Boot
-│   ├── src/main/java/
-│   │   └── com/example/Project/kyra_cosmetics/
-│   │       ├── controller/          # REST Controllers
-│   │       ├── service/             # Business Logic
-│   │       ├── repository/          # Data Access
-│   │       ├── model/               # Entities & DTOs
-│   │       └── config/              # Configuration
-│   ├── src/test/java/               # Unit Tests
-│   └── pom.xml                      # Maven dependencies
-├── kyra-frontend/                    # Frontend React (Bonus)
-├── swagger-api-docs.json            # Export Swagger Documentation
-├── Kyra_Cosmetics_API_Demo.postman_collection.json
-├── artifacts/surefire-reports/      # Test Reports
-└── README.md                        # Această documentație
-```
