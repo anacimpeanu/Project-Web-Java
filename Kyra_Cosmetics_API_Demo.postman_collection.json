@@ -2,7 +2,7 @@
 	"info": {
 		"_postman_id": "kyra-cosmetics-api",
 		"name": "Kyra Cosmetics API - Demo Collection",
-		"description": "Complete demonstration of Kyra Cosmetics E-commerce API functionality",
+		"description": "Complete demonstration of Kyra Cosmetics E-commerce API functionality including Admin operations",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"variable": [
@@ -17,7 +17,29 @@
 			"name": "1. User Management",
 			"item": [
 				{
-					"name": "Register New User",
+					"name": "Register Admin User",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Admin User\",\n  \"email\": \"admin@kyracosmetics.com\",\n  \"password\": \"admin123\",\n  \"role\": \"ADMIN\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/users/register",
+							"host": ["{{baseUrl}}"],
+							"path": ["users", "register"]
+						},
+						"description": "Registers an admin user for administrative operations"
+					}
+				},
+				{
+					"name": "Register Customer User",
 					"request": {
 						"method": "POST",
 						"header": [
@@ -36,6 +58,28 @@
 							"path": ["users", "register"]
 						},
 						"description": "Registers a new customer user"
+					}
+				},
+				{
+					"name": "Register Another Customer",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Ion Popescu\",\n  \"email\": \"ion.popescu@email.com\",\n  \"password\": \"password456\",\n  \"role\": \"CUSTOMER\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/users/register",
+							"host": ["{{baseUrl}}"],
+							"path": ["users", "register"]
+						},
+						"description": "Registers another customer for testing"
 					}
 				},
 				{
@@ -65,7 +109,7 @@
 					}
 				}
 			],
-			"description": "User registration and profile management"
+			"description": "User registration and profile management - includes both Admin and Customer accounts"
 		},
 		{
 			"name": "2. Category Management", 
@@ -158,7 +202,7 @@
 								}
 							]
 						},
-						"description": "Creates a new lipstick product"
+						"description": "Creates a new lipstick product in Makeup category"
 					}
 				},
 				{
@@ -190,6 +234,62 @@
 					}
 				},
 				{
+					"name": "Create Product - Eye Shadow Palette",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Eye Shadow Palette Nude Collection\",\n  \"description\": \"12 shades of nude and brown eye shadows\",\n  \"price\": 35.00,\n  \"stock\": 25\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/products?categoryId=1",
+							"host": ["{{baseUrl}}"],
+							"path": ["products"],
+							"query": [
+								{
+									"key": "categoryId",
+									"value": "1"
+								}
+							]
+						},
+						"description": "Creates an eye shadow palette in Makeup category"
+					}
+				},
+				{
+					"name": "Create Product - Serum",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Vitamin C Brightening Serum\",\n  \"description\": \"Anti-aging serum with 15% vitamin C\",\n  \"price\": 55.00,\n  \"stock\": 15\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/products?categoryId=2",
+							"host": ["{{baseUrl}}"],
+							"path": ["products"],
+							"query": [
+								{
+									"key": "categoryId",
+									"value": "2"
+								}
+							]
+						},
+						"description": "Creates a serum product in Skincare category"
+					}
+				},
+				{
 					"name": "Get All Products",
 					"request": {
 						"method": "GET",
@@ -203,7 +303,7 @@
 					}
 				},
 				{
-					"name": "Get Products by Category",
+					"name": "Get Products by Category - Makeup",
 					"request": {
 						"method": "GET",
 						"header": [],
@@ -214,108 +314,148 @@
 						},
 						"description": "Gets all products from Makeup category"
 					}
-				}
-			],
-			"description": "Product catalog management"
-		},
-		{
-			"name": "4. Shopping Cart",
-			"item": [
-				{
-					"name": "Add Lipstick to Cart",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"url": {
-							"raw": "{{baseUrl}}/cart/1/add?productId=1&quantity=2",
-							"host": ["{{baseUrl}}"],
-							"path": ["cart", "1", "add"],
-							"query": [
-								{
-									"key": "productId",
-									"value": "1"
-								},
-								{
-									"key": "quantity",
-									"value": "2"
-								}
-							]
-						},
-						"description": "Adds 2 lipsticks to user's cart"
-					}
 				},
 				{
-					"name": "Add Face Cream to Cart",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"url": {
-							"raw": "{{baseUrl}}/cart/1/add?productId=2&quantity=1",
-							"host": ["{{baseUrl}}"],
-							"path": ["cart", "1", "add"],
-							"query": [
-								{
-									"key": "productId",
-									"value": "2"
-								},
-								{
-									"key": "quantity",
-									"value": "1"
-								}
-							]
-						},
-						"description": "Adds 1 face cream to user's cart"
-					}
-				},
-				{
-					"name": "View Cart Contents",
+					"name": "Get Products by Category - Skincare",
 					"request": {
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{baseUrl}}/cart/1",
+							"raw": "{{baseUrl}}/products/category/2",
 							"host": ["{{baseUrl}}"],
-							"path": ["cart", "1"]
+							"path": ["products", "category", "2"]
 						},
-						"description": "Views current cart contents"
+						"description": "Gets all products from Skincare category"
 					}
-				},
+				}
+			],
+			"description": "Product catalog management - Create and browse cosmetic products"
+		},
+		{
+			"name": "4. Shopping Cart (Customer)",
+			"item": [
 				{
-					"name": "Remove Product from Cart",
+					"name": "Add Lipstick to Cart (User 2)",
 					"request": {
-						"method": "DELETE",
+						"method": "POST",
 						"header": [],
 						"url": {
-							"raw": "{{baseUrl}}/cart/1/remove?productId=1",
+							"raw": "{{baseUrl}}/cart/2/add?productId=1&quantity=2",
 							"host": ["{{baseUrl}}"],
-							"path": ["cart", "1", "remove"],
+							"path": ["cart", "2", "add"],
 							"query": [
 								{
 									"key": "productId",
+									"value": "1",
+									"description": "Matte Lipstick Ruby Red"
+								},
+								{
+									"key": "quantity",
+									"value": "2"
+								}
+							]
+						},
+						"description": "Customer adds 2 lipsticks to cart"
+					}
+				},
+				{
+					"name": "Add Face Cream to Cart (User 2)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/cart/2/add?productId=2&quantity=1",
+							"host": ["{{baseUrl}}"],
+							"path": ["cart", "2", "add"],
+							"query": [
+								{
+									"key": "productId",
+									"value": "2",
+									"description": "Hydrating Face Cream"
+								},
+								{
+									"key": "quantity",
 									"value": "1"
 								}
 							]
 						},
-						"description": "Removes lipstick from cart"
+						"description": "Customer adds 1 face cream to cart"
+					}
+				},
+				{
+					"name": "Add Eye Shadow to Cart (User 2)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/cart/2/add?productId=3&quantity=1",
+							"host": ["{{baseUrl}}"],
+							"path": ["cart", "2", "add"],
+							"query": [
+								{
+									"key": "productId",
+									"value": "3",
+									"description": "Eye Shadow Palette"
+								},
+								{
+									"key": "quantity",
+									"value": "1"
+								}
+							]
+						},
+						"description": "Customer adds eye shadow palette to cart"
+					}
+				},
+				{
+					"name": "View Cart Contents (User 2)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/cart/2",
+							"host": ["{{baseUrl}}"],
+							"path": ["cart", "2"]
+						},
+						"description": "Customer views current cart contents and total"
+					}
+				},
+				{
+					"name": "Remove Product from Cart (User 2)",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/cart/2/remove?productId=3",
+							"host": ["{{baseUrl}}"],
+							"path": ["cart", "2", "remove"],
+							"query": [
+								{
+									"key": "productId",
+									"value": "3",
+									"description": "Remove Eye Shadow Palette"
+								}
+							]
+						},
+						"description": "Customer removes eye shadow palette from cart"
 					}
 				}
 			],
-			"description": "Shopping cart functionality"
+			"description": "Shopping cart functionality - Customer adds and manages products in cart"
 		},
 		{
 			"name": "5. Order Processing",
 			"item": [
 				{
-					"name": "Place Order",
+					"name": "Place Order (User 2)",
 					"request": {
 						"method": "POST",
 						"header": [],
 						"url": {
-							"raw": "{{baseUrl}}/orders/1",
+							"raw": "{{baseUrl}}/orders/2",
 							"host": ["{{baseUrl}}"],
-							"path": ["orders", "1"]
+							"path": ["orders", "2"]
 						},
-						"description": "Places order from current cart contents"
+						"description": "Places order from current cart contents for User 2"
 					}
 				},
 				{
@@ -324,15 +464,41 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{baseUrl}}/orders/user/1",
+							"raw": "{{baseUrl}}/orders/user/2",
 							"host": ["{{baseUrl}}"],
-							"path": ["orders", "user", "1"]
+							"path": ["orders", "user", "2"]
 						},
-						"description": "Views all orders for user"
+						"description": "Views all orders for user 2"
+					}
+				}
+			],
+			"description": "Order processing and tracking"
+		},
+		{
+			"name": "6. Admin Operations",
+			"item": [
+				{
+					"name": "Update Order Status - Processing",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/orders/1/status?status=PROCESSING",
+							"host": ["{{baseUrl}}"],
+							"path": ["orders", "1", "status"],
+							"query": [
+								{
+									"key": "status",
+									"value": "PROCESSING",
+									"description": "Order is being processed"
+								}
+							]
+						},
+						"description": "Admin updates order status to PROCESSING"
 					}
 				},
 				{
-					"name": "Update Order Status to Shipped",
+					"name": "Update Order Status - Shipped",
 					"request": {
 						"method": "PATCH",
 						"header": [],
@@ -343,15 +509,145 @@
 							"query": [
 								{
 									"key": "status",
-									"value": "SHIPPED"
+									"value": "SHIPPED",
+									"description": "Order has been shipped"
 								}
 							]
 						},
-						"description": "Updates order status (admin operation)"
+						"description": "Admin updates order status to SHIPPED"
+					}
+				},
+				{
+					"name": "Update Order Status - Delivered",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/orders/1/status?status=DELIVERED",
+							"host": ["{{baseUrl}}"],
+							"path": ["orders", "1", "status"],
+							"query": [
+								{
+									"key": "status",
+									"value": "DELIVERED",
+									"description": "Order has been delivered"
+								}
+							]
+						},
+						"description": "Admin updates order status to DELIVERED"
+					}
+				},
+				{
+					"name": "Update Order Status - Cancelled",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/orders/1/status?status=CANCELLED",
+							"host": ["{{baseUrl}}"],
+							"path": ["orders", "1", "status"],
+							"query": [
+								{
+									"key": "status",
+									"value": "CANCELLED",
+									"description": "Order has been cancelled"
+								}
+							]
+						},
+						"description": "Admin cancels an order"
+					}
+				},
+				{
+					"name": "Delete Product (Admin)",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/products/3",
+							"host": ["{{baseUrl}}"],
+							"path": ["products", "3"]
+						},
+						"description": "Admin removes a product from the catalog"
+					}
+				},
+				{
+					"name": "Create New Category (Admin)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Fragrances\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/categories",
+							"host": ["{{baseUrl}}"],
+							"path": ["categories"]
+						},
+						"description": "Admin creates a new product category"
+					}
+				},
+				{
+					"name": "Add New Product - Perfume (Admin)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Eau de Parfum Elegance\",\n  \"description\": \"Sophisticated floral fragrance\",\n  \"price\": 89.99,\n  \"stock\": 20\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/products?categoryId=3",
+							"host": ["{{baseUrl}}"],
+							"path": ["products"],
+							"query": [
+								{
+									"key": "categoryId",
+									"value": "3"
+								}
+							]
+						},
+						"description": "Admin adds a new perfume product"
+					}
+				},
+				{
+					"name": "View All Users (Admin)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/users",
+							"host": ["{{baseUrl}}"],
+							"path": ["users"]
+						},
+						"description": "Admin views all registered users"
+					}
+				},
+				{
+					"name": "View All Orders (Admin)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/orders/user/2",
+							"host": ["{{baseUrl}}"],
+							"path": ["orders", "user", "2"]
+						},
+						"description": "Admin monitors all customer orders"
 					}
 				}
 			],
-			"description": "Order processing and tracking"
+			"description": "Administrative operations - Product management, Order tracking, Category management, User monitoring"
 		}
 	],
 	"event": [
