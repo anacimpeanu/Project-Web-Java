@@ -59,8 +59,6 @@
  - **CI:**
 	 - A GitHub Actions workflow is included at `.github/workflows/maven.yml` to run `./mvnw -f Project test` on push and pull requests.
 
-<<<<<<< HEAD
-=======
 ## API Documentation
 
 The application includes comprehensive REST API documentation using **Swagger/OpenAPI 3.0**.
@@ -73,8 +71,11 @@ The application includes comprehensive REST API documentation using **Swagger/Op
 - `GET /api/users/{id}` - Get user by ID
 - `POST /api/products` - Create new product
 - `GET /api/products` - Get all products
+
 #### Category Management (`/api/categories`)
 - `POST /api/categories` - Create new category
+
+#### Cart Management (`/api/cart`)
 - `GET /api/cart/{userId}` - Get user's cart
 - `POST /api/cart/{userId}/add` - Add product to cart
 - `DELETE /api/cart/{userId}/remove` - Remove product from cart
@@ -92,6 +93,13 @@ The application persists data for **at least 6 entities** with **4+ relations**:
 
 1. **User** - Customer accounts with authentication
 2. **Category** - Product categorization
+3. **Product** - Cosmetic products
+4. **Cart** - Shopping cart
+5. **CartItem** - Items in cart
+6. **Order** - Customer orders
+7. **OrderItem** - Items in orders
+
+### Entity Relations
 
 - User ↔ Cart (One-to-One)
 - User ↔ Order (One-to-Many)
@@ -106,6 +114,9 @@ The application persists data for **at least 6 entities** with **4+ relations**:
 The application implements **5 services** with comprehensive business logic:
 
 1. **UserService** - User registration, authentication, profile management
+2. **ProductService** - Product catalog management
+3. **CategoryService** - Category organization
+4. **CartService** - Shopping cart operations
 5. **OrderService** - Order processing and status management
 
 ### Data Validation
@@ -127,6 +138,9 @@ All POJO classes include validation constraints using **Bean Validation API**:
    - API Base URL: `http://localhost:8080/api`
    - Swagger UI: `http://localhost:8080/swagger-ui/index.html`
    - H2 Console: `http://localhost:8080/h2-console`
+
+### Features Summary
+
 - REST endpoints for all MVP features
 - Service layer with business logic
 - Repository layer with JPA
@@ -167,6 +181,9 @@ A complete Postman collection is provided to demonstrate all API functionality:
 
 **Test Flow:**
 1. **User Management** - Register users and retrieve user data
+2. **Category Creation** - Create product categories
+3. **Product Management** - Add products to catalog
+4. **Shopping Cart** - Add/remove items from cart
 5. **Order Processing** - Place orders, track status, view order history
 
 ### Alternative: Swagger UI Testing
@@ -212,4 +229,3 @@ You can also test all endpoints interactively using Swagger UI:
   "stock": 100
 }
 ```
->>>>>>> 2d6e030 (fix)
