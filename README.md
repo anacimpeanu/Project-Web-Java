@@ -128,8 +128,8 @@ Toate clasele POJO includ validări folosind **Bean Validation API** și constra
 
 Aplicația include documentație completă API folosind **Swagger/OpenAPI 3.0**:
 
-- **Swagger UI (Interactive):** `http://localhost:8080/swagger-ui/index.html`
-- **OpenAPI JSON:** `http://localhost:8080/v3/api-docs`
+- **Swagger UI (Interactive):** `http:[codespace]/swagger-ui/index.html`
+- **OpenAPI JSON:** `http:[codespace]/v3/api-docs`
 - **Export documentație:** [`swagger-api-docs.json`](swagger-api-docs.json)
 
 Documentația cuprinde:
@@ -166,7 +166,7 @@ Colecție Postman completă pentru demonstrarea funcționalităților:
 ### Swagger UI (Alternativă Postman)
 
 Poți testa toate endpoint-urile interactiv:
-- URL: `http://localhost:8080/swagger-ui/index.html`
+- URL: `http:[codespace]/swagger-ui/index.html`
 - Interface interactivă cu toate endpoint-urile
 - Exemple și documentație integrată
 
