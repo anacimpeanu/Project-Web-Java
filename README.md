@@ -155,7 +155,6 @@ Colecție Postman completă pentru demonstrarea funcționalităților:
 4. Shopping Cart (Add/Remove items)
 5. Order Processing (Place order, Track status)
 
-### Swagger UI (Alternativă Postman)
 ---
 
 ## 🚀 V. Rulare Aplicație
