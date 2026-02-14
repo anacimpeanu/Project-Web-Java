@@ -1,6 +1,7 @@
 package com.example.Project.kyra_cosmetics.model;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
@@ -33,5 +34,6 @@ public class Product {
     // Many Products -> 1 Category
     @ManyToOne
     @JoinColumn(name = "category_id")
+    @JsonIgnoreProperties("products")
     private Category category;
 }

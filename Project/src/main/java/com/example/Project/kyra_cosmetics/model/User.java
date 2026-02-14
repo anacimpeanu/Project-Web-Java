@@ -1,6 +1,7 @@
 package com.example.Project.kyra_cosmetics.model;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
@@ -37,9 +38,11 @@ public class User {
 
     // 1 User -> Many Orders
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    @JsonIgnoreProperties("user")
     private List<Order> orders;
 
     // 1 User -> 1 Cart
     @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
+    @JsonIgnoreProperties("user")
     private Cart cart;
 }

@@ -1,6 +1,7 @@
 package com.example.Project.kyra_cosmetics.model;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -23,10 +24,12 @@ public class Order {
     // Many Orders -> 1 User
     @ManyToOne
     @JoinColumn(name = "user_id")
+    @JsonIgnoreProperties({"orders", "cart"})
     private User user;
 
     // 1 Order -> Many OrderItems
     @OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
+    @JsonIgnoreProperties("order")
     private List<OrderItem> orderItems;
 
     private double totalPrice;

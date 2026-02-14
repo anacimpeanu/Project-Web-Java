@@ -1,6 +1,7 @@
 package com.example.Project.kyra_cosmetics.model;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Min;
 import lombok.*;
@@ -20,11 +21,13 @@ public class CartItem {
     // Many CartItems -> 1 Cart
     @ManyToOne
     @JoinColumn(name = "cart_id")
+    @JsonIgnoreProperties("cartItems")
     private Cart cart;
 
     // Many CartItems -> 1 Product
     @ManyToOne
     @JoinColumn(name = "product_id")
+    @JsonIgnoreProperties("category")
     private Product product;
 
     @Min(value = 1, message = "Quantity must be at least 1")

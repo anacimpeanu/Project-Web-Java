@@ -1,6 +1,7 @@
 package com.example.Project.kyra_cosmetics.model;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import lombok.*;
@@ -24,5 +25,6 @@ public class Category {
 
     // 1 Category -> Many Products
     @OneToMany(mappedBy = "category")
+    @JsonIgnoreProperties("category")
     private List<Product> products;
 }
