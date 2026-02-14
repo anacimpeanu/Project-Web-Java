@@ -8,7 +8,7 @@
 	"variable": [
 		{
 			"key": "baseUrl",
-			"value": "http://localhost:8080/api",
+			"value": "https://bookish-pancake-jv6ww99jq5435qv9-8080.app.github.dev/api",
 			"type": "string"
 		}
 	],
